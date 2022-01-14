@@ -1,0 +1,30 @@
+{
+  "name": "provism-console",
+  "version": "1.0.0",
+  "description": "VNC to WebSocket Proxy for XenServer/XCP-ng",
+  "main": "./dist/index.js",
+  "repository": "idk",
+  "author": "Maythiwat Chomchuen <x@maythiwat.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "test": "exit 0",
+    "clean": "tsc --build --clean",
+    "build": "npm run clean && tsc",
+    "start": "node ./dist/index.js",
+    "dev": "ts-node ./src/index.ts",
+    "dev:watch": "nodemon ./src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@types/ws": "^8.2.2",
+    "dotenv": "^11.0.0",
+    "fastify": "^3.25.3",
+    "fastify-cors": "^6.0.2",
+    "fastify-websocket": "^4.0.0"
+  }
+}
