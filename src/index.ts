@@ -1,10 +1,10 @@
-import tls, { TLSSocket } from 'tls'
 import crypto from 'crypto'
-import { WebSocket } from 'ws'
+import tls, { type TLSSocket } from 'tls'
+import type { WebSocket } from 'ws'
 
 import fastify, { FastifyRequest } from 'fastify'
-import fastifyWebsocket from 'fastify-websocket'
-import fastifyCors from 'fastify-cors'
+import fastifyCors from '@fastify/cors'
+import fastifyWebsocket from '@fastify/websocket'
 
 import dotenv from 'dotenv'
 dotenv.config()
