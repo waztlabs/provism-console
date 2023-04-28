@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "VNC to WebSocket Proxy for XenServer/XCP-ng",
   "main": "./dist/index.js",
-  "repository": "idk",
-  "author": "Maythiwat Chomchuen <x@maythiwat.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maythiwat/provism-console.git"
+  },
+  "author": "Maythiwat Chomchuen <maythiwat.chom@gmail.com>",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
