@@ -77,20 +77,20 @@ const handleConsole = (vConsole: CachedConsole, socket: TLSSocket, ws: WebSocket
 
 ////////////////////////////////////////////////
 
-app.get('/', function (request, reply) {
-  reply.send('Welcome to Provism Console')
+app.get('/', (_, reply) => {
+  reply.send('Welcome to Provism Console (maythiwat.com)')
 })
 
-app.get('/list', function (request, reply) {
+app.get('/list', (_, reply) => {
   reply.send(vConsoles)
 })
 
-app.get('/clear', function (request, reply) {
+app.get('/clear', (_, reply) => {
   vConsoles.splice(0, vConsoles.length)
   reply.send(vConsoles)
 })
 
-app.get('/add', function (request: FastifyRequest<{ Querystring: { host: string, port: string, path: string } }>, reply) {
+app.get('/add', (request: FastifyRequest<{ Querystring: { host: string, port: string, path: string } }>, reply) => {
   if (!request.query.host || !request.query.port || !request.query.path) {
     reply.status(400).send('error: host, port, path is required.')
     return
