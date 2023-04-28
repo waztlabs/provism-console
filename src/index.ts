@@ -143,4 +143,14 @@ app.get('/console', { websocket: true }, (connection, request: FastifyRequest<{ 
 
 ////////////////////////////////////////////////
 
-app.listen(process.env.PORT || 3000)
+app.listen({
+  host: process.env.HOST || 'localhost',
+  port: Number(process.env.PORT) || 3000
+}, (error, address) => {
+  if (error) {
+    console.error(error)
+    process.exit(1)
+  }
+
+  console.log('> Listening on:', address)
+})
