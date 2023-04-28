@@ -127,18 +127,18 @@ app.get('/console', { websocket: true }, (connection, request: FastifyRequest<{ 
     return
   }
 
-  try {
-    const socket = tls.connect({
-      host: vConsole.hostname,
-      port: 443,
-      rejectUnauthorized: false
-    })
+  const socket = tls.connect({
+    host: vConsole.hostname,
+    port: 443,
+    rejectUnauthorized: false
+  }, () => {
     handleConsole(vConsole, socket, ws)
-  } catch (e) {
+  })
+
+  socket.on('error', e => {
     console.log(e)
     ws.close(1001, 'console transport error')
-    return
-  }
+  })
 })
 
 ////////////////////////////////////////////////
