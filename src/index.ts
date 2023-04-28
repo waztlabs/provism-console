@@ -2,7 +2,7 @@ import crypto from 'crypto'
 import tls, { type TLSSocket } from 'tls'
 import type { WebSocket } from 'ws'
 
-import fastify, { FastifyRequest } from 'fastify'
+import fastify, { type FastifyRequest } from 'fastify'
 import fastifyCors from '@fastify/cors'
 import fastifyWebsocket from '@fastify/websocket'
 
@@ -96,7 +96,7 @@ app.get('/add', (request: FastifyRequest<{ Querystring: { host: string, port: st
     return
   }
 
-  let vConsole: CachedConsole = {
+  const vConsole: CachedConsole = {
     uuid: generateId(),
     hostname: request.query.host,
     port: parseInt(request.query.port),
@@ -105,7 +105,7 @@ app.get('/add', (request: FastifyRequest<{ Querystring: { host: string, port: st
 
   vConsoles.push(vConsole)
 
-  let vncLiteCode = Buffer.from(JSON.stringify({
+  const vncLiteCode = Buffer.from(JSON.stringify({
     host: process.env.CONSOLE_HOST,
     port: process.env.CONSOLE_PORT,
     path: '/console',
@@ -152,5 +152,6 @@ app.listen({
     process.exit(1)
   }
 
+  console.log('Provism Console')
   console.log('> Listening on:', address)
 })
