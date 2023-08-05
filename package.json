@@ -29,5 +29,9 @@
     "@fastify/websocket": "^8.0.0",
     "dotenv": "^16.0.3",
     "fastify": "^4.17.0"
+  },
+  "type": "module",
+  "engines": {
+    "node": "^18 || ^20"
   }
 }

@@ -12,8 +12,8 @@ dotenv.config()
 ////////////////////////////////////////////////
 
 const app = fastify({ logger: false })
-app.register(fastifyCors)
-app.register(fastifyWebsocket)
+await app.register(fastifyCors)
+await app.register(fastifyWebsocket)
 
 ////////////////////////////////////////////////
 
